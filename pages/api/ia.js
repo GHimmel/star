@@ -78,6 +78,14 @@ export default async function ia(req, res) {
       text: "esta bien, pero es chino",
       label: "3",
     },
+    {
+      text: "esta bien",
+      label: "3",
+    },
+    {
+      text: "estoy satisfecho con lo que compre",
+      label: "3",
+    },
 
     {
       text: "El ventilador es ligero. Es verdad lo que opinan los demas de la potencia. No lo sentí muy ruidoso. Lo normal. A la 3ra velocidad tira mucho viento. Las patas hay q hacer presion para colocarlas (ponerlas como la imagen) pero igual se desarman con facilidad. Lo único por lo que le bajo las estrellas es porque el motor esta descubierto en el centro. Deberia estar tapado con un plástico para protegerlo de liquidos y polvo. De ahí en mas la otra contra es el plástico que no es resistente. Recomiendo dejarlo en una posición fija y taparlo cuando no se lo usa. 3/5.",
