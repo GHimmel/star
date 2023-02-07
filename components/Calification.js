@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { PulseLoader } from "react-spinners";
 
 export default function Calification({ setComment, comment }) {
   let estado = {};
   const [form, setForm] = useState({ name: "", comment: "" });
+  const [load, setLoad] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -11,6 +13,7 @@ export default function Calification({ setComment, comment }) {
 
   const handleSummit = async (e) => {
     e.preventDefault();
+    setLoad(true);
     const ia = await axios.post("api/ia", form);
     console.log(ia.data.body.classifications[0].labels.bueno.confidence);
     estado = {
@@ -19,6 +22,7 @@ export default function Calification({ setComment, comment }) {
       bueno: ia.data.body.classifications[0].labels.bueno.confidence,
       malo: ia.data.body.classifications[0].labels.malo.confidence,
     };
+    setLoad(false);
 
     setComment([...comment, estado]);
   };
@@ -59,9 +63,19 @@ export default function Calification({ setComment, comment }) {
             placeholder="Write your comment here..."
             onChange={handleChange}
           ></textarea>
-          <button class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 my-4  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-            send comment
-          </button>
+
+          {load ? (
+            <button
+              class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 my-4  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              disabled
+            >
+              <PulseLoader color="#ffffff" size={10} />
+            </button>
+          ) : (
+            <button class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 my-4  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+              send comment
+            </button>
+          )}
         </div>
       </form>
     </div>
