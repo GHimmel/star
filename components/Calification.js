@@ -34,7 +34,7 @@ export default function Calification({ setComment, comment }) {
           <div>
             <label
               for="first_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
             >
               First name
             </label>
@@ -51,7 +51,7 @@ export default function Calification({ setComment, comment }) {
 
           <label
             for="message"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
           >
             Your comment
           </label>
