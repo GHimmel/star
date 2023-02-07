@@ -6,7 +6,7 @@ export default function Nav() {
       <nav class="">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-3">
           <Link
-            href="https://flowbite.com"
+            href="/"
             class="flex items-center text-3xl font-normal font-bold"
           >
             {" "}

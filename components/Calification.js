@@ -15,14 +15,14 @@ export default function Calification({ setComment, comment }) {
     e.preventDefault();
     setLoad(true);
     const ia = await axios.post("api/ia", form);
-    console.log(ia.data.body.classifications[0].labels.bueno.confidence);
     estado = {
       name: form.name,
       comment: form.comment,
-      bueno: ia.data.body.classifications[0].labels.bueno.confidence,
-      malo: ia.data.body.classifications[0].labels.malo.confidence,
+      prediction: ia.data.body.classifications[0].prediction,
+      confidence: ia.data.body.classifications[0].confidence,
     };
     setLoad(false);
+    console.log(estado);
 
     setComment([...comment, estado]);
   };
@@ -60,7 +60,7 @@ export default function Calification({ setComment, comment }) {
             id="message"
             rows="4"
             class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Write your comment here..."
+            placeholder="Write your comment here... Ej: Es la mejor que use hasta ahora , buena adherencia y no es tan fina , rinde mucho y es bien transparente "
             onChange={handleChange}
           ></textarea>
 
