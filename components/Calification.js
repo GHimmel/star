@@ -7,7 +7,6 @@ export default function Calification({ setComment, comment }) {
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(form);
   };
 
   const handleSummit = async (e) => {
@@ -20,7 +19,7 @@ export default function Calification({ setComment, comment }) {
       bueno: ia.data.body.classifications[0].labels.bueno.confidence,
       malo: ia.data.body.classifications[0].labels.malo.confidence,
     };
-    console.log(estado);
+
     setComment([...comment, estado]);
   };
 

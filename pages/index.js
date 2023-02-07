@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [comment, setComment] = useState([]);
-  console.log("estao global", comment);
+
   return (
     <>
       <Nav></Nav>

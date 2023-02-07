@@ -2,7 +2,6 @@ const cohere = require("cohere-ai");
 cohere.init(process.env.API_KEY);
 
 export default async function ia(req, res) {
-  console.log(req.body);
   const { comment, name } = req.body;
   const examples = [
     { text: "Este producto es muy bueno", label: "bueno" },
